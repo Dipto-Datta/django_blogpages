@@ -1,0 +1,41 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+<h1 class="p-5">Article Page</h1>
+
+<div class="articles">
+
+    {% for article in articles %}
+
+    <div class="article">
+        <h2><a href="{% url 'articles:details' article.slug %}"> {{article.title}}</a></h2>
+        
+        <p>{{article.snippet}}</p>
+        <p>{{article.date}}</p>
+    </div>
+    {% endfor %}
+
+</div>
+<!-- <div class="container p-5 bg-dark">
+    <div class="articles">
+        {% for article in articles %}
+        <div class="card text-center m-5  ">
+            <div class="card-header">
+                Featured
+            </div>
+            <div class="card-body">
+
+                <h5 class="card-title">{{article.title}}</h5>
+
+                <p class="card-text">{{article.snippet}}</p>
+
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{article.date}}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div> -->
+{% endblock %}
