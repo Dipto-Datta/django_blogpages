@@ -15,9 +15,9 @@ def signup_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(request.POST)
+        form = AuthenticationForm(data=request.POST)
         if form.is_valid():
-            form.get_user()
+            # form.get_user()
             return redirect('articles:list')
     else:
         form = AuthenticationForm()
